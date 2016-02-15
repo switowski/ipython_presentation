@@ -1,0 +1,5 @@
+Topic:
+IPython - the improved Python REPL
+
+Abstract:
+IPython (the "I" stands for Improved) is the bread-and-butter of many, if not all, Pythonistas around the world. Today, I will show you a few tricks that you can use in your daily work.
