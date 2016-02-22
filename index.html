@@ -87,6 +87,7 @@
                     <img src="./img/fire.gif">
                     <aside class="notes">
                         I've decided that the best way to show you the capabilities of IPython is with a short live demo.
+                        BTW. this is how usually the live demo ends. Nevertheless, let's give it a try.
                         import requests ->TAB
                         requests.get?
                         requests.get??
@@ -94,11 +95,28 @@
                 </section>
 
                 <section>
+                    <div>
+                        <div class="left">
+                            <h2>IPython</h2>
+                            <img src="./img/brilliant.gif">
+                        </div>
+                        <div class="right">
+                            <h2>Python</h2>
+                            <img src="./img/angry.gif">
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        This is such a small improvement, but it will make your life way easier, even if you don't use Python very often.
+                        Also, once you get used to it, there is no way back.
+                    </aside>
+                </section>
+
+                <section>
                     <h2>
-                        Covered topics:
+                        Covered topics (remove it ?):
                     </h2>
                     <ul>
-                        <li>TAB-completion, aka "was it string.to_i or string.to_integer ? Or maybe int(string) ?"</li>
+                        <li>TAB-completion, aka <i>was it <b>string.to_i</b> or <b>string.to_integer</b> ? Or maybe <b>int(string)</b> ?</i></li>
                         <li>function?</li>
                         <li>function??</li>
                     </ul>
@@ -109,27 +127,102 @@
 
                 <section>
                     <h2>
-                        Live demo #2: %magic
+                        %magic
                     </h2>
                     <img src="./img/popcorn.gif">
                     <aside class="notes">
-                        Ok, so let's see what else we can do with IPython. Let's write a simple function.
-                        def hello(user):
-                            print('Hello', user)
+                        Also, IPython comes with a bunch of magic functions built it. Yes, they are seriously called 'magic function'.
+                        Let's see what we can do with that. Let's write a simple function.
+                        And by write, I mean copy paste it from the next slide.
                     </aside>
                 </section>
 
                 <section>
-                    <h2>
-                        Covered topics:
-                    </h2>
-                    <ul>
-                        <li>TAB-completion, aka "was it string.to_i or string.to_integer ? Or maybe int(string) ?"</li>
-                        <li>function?</li>
-                        <li>function??</li>
-                    </ul>
+                    <h2>%edit</h2>
+                    <pre><code class="python make-it-big" data-trim data-noescape>
+def hello(name):
+    print 'Hello', name '!'
+                    </code></pre>
                     <aside class="notes">
-                    This slide is just to see if I covered everything.
+                        What happens if I paste it into IPython ? Well, I get an error, cause I forgot the comma.
+                        I could press arrow up and try to fix it, but when the function has multiple lines this can become quite a hassle.
+                        So we can use another magic function: %edit. If will open your favorite text editor (or Vim, if you haven't configured it) and allow you to edit your code there. After you save and exit, it will execute the code. But if has one great advantage, if you run if with -p option, it will reopen the same file as last time. So you can fix the errors.
+                    </aside>
+                </section>
+                <section>
+                    <h2>%debug</h2>
+                    <pre><code class="python make-it-big" data-trim data-noescape>
+def hello(name):
+    print 'Hello', name, '!'
+    print number + 42
+                    </code></pre>
+                    <aside class="notes">
+                        But what happens if the function is more complicated and I don't see the error right away ?
+                        Well, one option is to stare at the code a bit longer until you get the error, but the easier way is to use the %debug function.
+                        It will automatically find the error in the code and fix it for you. How cool is that ?
+                        Well, no, it won't do that (yet!), instead it will start the debugger session in the place where the error has occurred, so you can poke around and find the error.
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>%cpaste</h2>
+                    <pre><code class="python make-it-big" data-trim data-noescape>
+def hello(name):
+    print 'Hello', name, '!'
+    print number + 42
+number = 0
+                    </code></pre>
+                    <aside class="notes">
+                        So, now we have fully working function. Except that if you try to copy it into IPython, it will complain about indentation error.
+                        And yes, IPython has a magic function to fix that, it's called %cpaste and it will automatically adjust the indentations of all the code you paste.
+                    </aside>
+                </section>
+
+                <section>
+                    <pre><code class="python make-it-big" data-trim data-noescape>%timeit <i>function()</i></code></pre>
+                    <pre><code class="python make-it-big" data-trim data-noescape>%history <i>10-20 ~1/1,5,7</i></code></pre>
+                    <pre><code class="python make-it-big" data-trim data-noescape>%pastebin <i>10-20</i>
+# 'https://gist.github.com/8f03e623fe366'</code></pre>
+                    <pre><code class="python make-it-big" data-trim data-noescape>%macro <i>foo 10-20</i></code></pre>
+                    <pre><code class="python make-it-big" data-trim data-noescape>%save <i>foo.py 10-20</i></code></pre>
+                    <aside class="notes">
+                        There are few more interesting functions of IPython:
+                        * you can use %timeit to measure the execution time of a function
+                        * with %history you can print previous commands, for example this will print lines 10 to 20 from the current IPython session and line 1st, 5th and 7th from previous IPython session.
+                        * if you think some of the lines are worth sharing, you can use %pastebin command. It will save lines 10-20 on the pastebin and return the URL that you can share with someone.
+                        * you can save some commands as a macro with %macro command. This command will save lines 10-20 as a macro, so each time you type foo, it will execute those 10 lines.
+                        * and if you are particularly happy with some code you just wrote, you can save it to a file with %save command. This example with save lines 10-20 in a file called foo.py.
+                    </aside>
+                </section>
+
+                <section>
+                    <p>Shell commands:
+                        <pre><code class="make-it-big" data-trim data-noescape>ls
+pwd
+cd ..
+!ping www.google.com</code></pre>
+                    </p>
+                    <aside class="notes">
+                        You can also execute shell commands directly from IPython. Some basic ones will work out of the box but with more advanced ones, you need to add an exclamation mark as a prefix.
+                    </aside>
+                </section>
+
+                <section>
+                    <p>Debugging your code with IPython:
+                        <pre><code class="python make-it-big" data-trim data-noescape>some code
+import ipython; ipython.embed()
+some other code that fails</code></pre>
+                    </p>
+                    <aside class="notes">
+                        My last piece of advice is that you can use IPython for debugging any of your scripts. Just put this command anywhere in your code and if the code execution reaches this place, it will open IPython session in your terminal. Works very well for debugging websites that you have hosted locally.
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Questions ?</h2>
+                    <img src="./img/different.gif">
+                    <aside class="notes">
+                        Thank you, any questions ?
                     </aside>
                 </section>
 

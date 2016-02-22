@@ -1336,3 +1336,19 @@ html:-moz-full-screen-ancestor {
 
 .zoomed .reveal .roll span:after {
   visibility: hidden; }
+
+/*********************************************
+ * CUSTOM STUFF
+ *********************************************/
+.make-it-big {
+  font-size: 150% !important;
+  line-height: 150% !important;
+}
+.left {
+  width: 50%;
+  float: left;
+}
+.right {
+  width: 50%;
+  float: right;
+}

@@ -18,5 +18,5 @@
     - %history
     - %macro
     - %save
-* You can execute shell commands by adding `1` at the beginning of the command
+* You can execute shell commands by adding `!` at the beginning of the command
 * You can also use IPython for debugging: You just drop: ```import ipython; ipython.embed()``` somewhere in the code and then the code execution reaches that place, it will start Ipython session in your terminal.
