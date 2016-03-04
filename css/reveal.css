@@ -1352,3 +1352,6 @@ html:-moz-full-screen-ancestor {
   width: 50%;
   float: right;
 }
+.green {
+  color: #0f0;
+}

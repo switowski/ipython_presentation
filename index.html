@@ -42,14 +42,14 @@
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
                 <section>
-                    <h1>IPython</h1>
+                    <h1><span class='green'>I</span>Python</h1>
                     <h3>Tips & Tricks</h3>
                     <p>
                         <small>Created by <a href="https://github.com/switowski">Sebastian Witowski</a></small><br/>
                     </p>
                     <aside class="notes">
                         Hi everyone. If you saw the Lightning Talks last time probably you remember the nice presentation that Alehandro gave about IPython notebooks.
-                        Today, I want to talk about technology that lays behind the notebooks - the IPython itself.
+                        Today, I want to talk about technology that powers the notebooks - the IPython itself.
                     </aside>
                 </section>
 
@@ -62,6 +62,7 @@
                         But first, please tell me how many of you start your python REPL like on the left picture ?
                         Don't be shy, it's a perfectly fine way to use Python REPL.
                         (if there are hands up) - Perfect, so now I will try to convince you to use the second method.
+                        (if there are no hands up) - Great, I see that everyone is already using IPython. I hope there are still a few things you can learn from this presentation.
                     </aside>
                 </section>
 
@@ -76,7 +77,8 @@
                         <li>Loop</li>
                     </ul>
                     <aside class="notes">
-                        So what is a REPL that I just mentioned ? It's a simple interactive program that reads commands from you, evaluates them and prints back the results.
+                        So what is a REPL that I just mentioned ?<br/>
+                        It's a simple interactive program that reads commands from you, evaluates them and prints back the results.
                     </aside>
                 </section>
 
@@ -88,16 +90,19 @@
                     <aside class="notes">
                         I've decided that the best way to show you the capabilities of IPython is with a short live demo.
                         BTW. this is how usually the live demo ends. Nevertheless, let's give it a try.
-                        import requests ->TAB
-                        requests.get?
-                        requests.get??
+                        OFFLINE NOTES:
+                        increase the font !
+                        import requests ->TAB  # Let's import a random module, you can see that pressing TAB gives you the auto completion
+                        requests.get?  # Adding a question mark will show you the doc string of that function
+                        requests.get??  # Adding two question marks will show you the whole body of a function
+                        requests.cookies  # It works also with classes or modules
                     </aside>
                 </section>
 
                 <section>
                     <div>
                         <div class="left">
-                            <h2>IPython</h2>
+                            <h2><span class='green'>I</span>Python</h2>
                             <img src="./img/brilliant.gif">
                         </div>
                         <div class="right">
@@ -107,21 +112,7 @@
                     </div>
                     <aside class="notes">
                         This is such a small improvement, but it will make your life way easier, even if you don't use Python very often.
-                        Also, once you get used to it, there is no way back.
-                    </aside>
-                </section>
-
-                <section>
-                    <h2>
-                        Covered topics (remove it ?):
-                    </h2>
-                    <ul>
-                        <li>TAB-completion, aka <i>was it <b>string.to_i</b> or <b>string.to_integer</b> ? Or maybe <b>int(string)</b> ?</i></li>
-                        <li>function?</li>
-                        <li>function??</li>
-                    </ul>
-                    <aside class="notes">
-                        This slide is just to see if I covered everything.
+                        Also, once you get used to that, it's very hard to not get frustrated the next time you try to use regular Python REPL.
                     </aside>
                 </section>
 
@@ -131,9 +122,10 @@
                     </h2>
                     <img src="./img/popcorn.gif">
                     <aside class="notes">
-                        Also, IPython comes with a bunch of magic functions built it. Yes, they are seriously called 'magic function'.
-                        Let's see what we can do with that. Let's write a simple function.
-                        And by write, I mean copy paste it from the next slide.
+                        Also, IPython comes with a bunch of magic functions built in.<br/>
+                        Yes, they are seriously called 'magic function'.<br/>
+                        Let's see what we can do with that. Let's try to write a simple function.<br/>
+                        And by write, I mean copy and paste it from the next slide.
                     </aside>
                 </section>
 
@@ -144,9 +136,13 @@ def hello(name):
     print 'Hello', name '!'
                     </code></pre>
                     <aside class="notes">
-                        What happens if I paste it into IPython ? Well, I get an error, cause I forgot the comma.
+                        So, what happens if I paste this code into IPython ? Well, I get an error, cause I forgot the comma.
                         I could press arrow up and try to fix it, but when the function has multiple lines this can become quite a hassle.
-                        So we can use another magic function: %edit. If will open your favorite text editor (or Vim, if you haven't configured it) and allow you to edit your code there. After you save and exit, it will execute the code. But if has one great advantage, if you run if with -p option, it will reopen the same file as last time. So you can fix the errors.
+                        So we can use another magic function: %edit. If will open your favorite text editor (or Vim, if you haven't configured it) and allow you to edit your code there. After you save and exit, it will execute the code.
+                        I could write my function here, but I'm too lazy to do this.
+                        Instead, I can use the %edit command and specify a line number, and this line will be automatically copied inside the editor.
+                        There is also another great feature of %edit command, if you run if with -p option, it will reopen the same file as last time.
+                        So you can keep iterating on your function until you fix all the errors.
                     </aside>
                 </section>
                 <section>
@@ -157,10 +153,14 @@ def hello(name):
     print number + 42
                     </code></pre>
                     <aside class="notes">
-                        But what happens if the function is more complicated and I don't see the error right away ?
-                        Well, one option is to stare at the code a bit longer until you get the error, but the easier way is to use the %debug function.
+                        But what happens if the function is more complicated and I don't see the error right away ?<br/>
+                        IPython has a nice function that you can use in this case, called %debug.<br/>
                         It will automatically find the error in the code and fix it for you. How cool is that ?
-                        Well, no, it won't do that (yet!), instead it will start the debugger session in the place where the error has occurred, so you can poke around and find the error.
+                        No, I'm kidding, it won't do that (yet!), instead it will start the debugger session in the place where the error has occurred, so you can poke around and find the error.
+                        So, let's see what is the problem.<br/>
+                        Name is defined...<br/>
+                        Ahh, but the number is not defined.<br/>
+                        I could now use the %edit command to fix it, but let's continue with another example.
                     </aside>
                 </section>
 
@@ -174,7 +174,9 @@ number = 0
                     </code></pre>
                     <aside class="notes">
                         So, now we have fully working function. Except that if you try to copy it into IPython, it will complain about indentation error.
-                        And yes, IPython has a magic function to fix that, it's called %cpaste and it will automatically adjust the indentations of all the code you paste.
+                        And yes, IPython has a magic function to fix that, it's called %cpaste.<br>
+                        It will allow you to paste some code and automatically adjust the indentations.
+                        It's a very handy function if you want to copy a huge chunk of code.
                     </aside>
                 </section>
 
@@ -186,11 +188,11 @@ number = 0
                     <pre><code class="python make-it-big" data-trim data-noescape>%macro <i>foo 10-20</i></code></pre>
                     <pre><code class="python make-it-big" data-trim data-noescape>%save <i>foo.py 10-20</i></code></pre>
                     <aside class="notes">
-                        There are few more interesting functions of IPython:
-                        * you can use %timeit to measure the execution time of a function
-                        * with %history you can print previous commands, for example this will print lines 10 to 20 from the current IPython session and line 1st, 5th and 7th from previous IPython session.
-                        * if you think some of the lines are worth sharing, you can use %pastebin command. It will save lines 10-20 on the pastebin and return the URL that you can share with someone.
-                        * you can save some commands as a macro with %macro command. This command will save lines 10-20 as a macro, so each time you type foo, it will execute those 10 lines.
+                        There are many more interesting functions in IPython, I will just quickly show a few:
+                        * you can use %timeit to measure the execution time of a function<br>
+                        * with %history you can print previous commands, for example this will print lines 10 to 20 from the current IPython session and line 1st, 5th and 7th from previous IPython session.<br>
+                        * if you think that some code is worth sharing, you can use %pastebin command. It create a gist on github with lines 10-20 and return the URL that you can share with your colleagues.<br>
+                        * you can save some lines as a macro with %macro command. This command will save lines 10-20 as a macro called foo, so each time you type foo, it will execute those 10 lines.<br>
                         * and if you are particularly happy with some code you just wrote, you can save it to a file with %save command. This example with save lines 10-20 in a file called foo.py.
                     </aside>
                 </section>
@@ -208,13 +210,33 @@ cd ..
                 </section>
 
                 <section>
-                    <p>Debugging your code with IPython:
+                    <p>Debugging your code with <span class='green'>I</span>Python:
                         <pre><code class="python make-it-big" data-trim data-noescape>some code
-import ipython; ipython.embed()
+import IPython; IPython.embed()
 some other code that fails</code></pre>
                     </p>
                     <aside class="notes">
-                        My last piece of advice is that you can use IPython for debugging any of your scripts. Just put this command anywhere in your code and if the code execution reaches this place, it will open IPython session in your terminal. Works very well for debugging websites that you have hosted locally.
+                        My last piece of advice is that you can use IPython for debugging any of your scripts.<br>
+                        Just put this command anywhere in your code and if the code execution reaches this place, it will open IPython session in your terminal.<br>Works very well for debugging websites that you have hosted locally.
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Summary</h2>
+                    <ul>
+                        <li>Tab completion</li>
+                        <li>Easy access to documentation with ? and ??</li>
+                        <li>%magic function</li>
+                        <li>Shell commands</li>
+                        <li>Debugging</li>
+                    </ul>
+                    <aside class="notes">
+                        So to sum up, IPython has many advantages over the standard Python REPL.<br/>
+                        You get the tab completion that helps you typing faster.<br/>
+                        You have easy access to the documentation.<br/>
+                        You have plenty of magic functions to help you with most common tasks.<br/>
+                        You can execute shell commands without leaving IPython.<br/>
+                        And you can use all those features when debugging your code.<br/>
                     </aside>
                 </section>
 
